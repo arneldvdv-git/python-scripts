@@ -1,0 +1,7 @@
+log_file,error_message
+.\log.log,ERROR - This is an error message.
+.\log.log,CRITICAL - This is a critical message.
+.\log.log,ERROR - Another error message.
+.\log.log,CRITICAL - Another critical message.
+.\log.log,SEVERE - This is a severe message.
+.\log.log,FATAL - This is a fatal message.

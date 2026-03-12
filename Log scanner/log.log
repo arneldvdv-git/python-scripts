@@ -1,0 +1,12 @@
+ERROR - This is an error message.
+WARNING - This is a warning message.
+CRITICAL - This is a critical message.
+INFO - This is an informational message.
+DEBUG - This is a debug message.
+ERROR - Another error message.
+WARNING - Another warning message.
+CRITICAL - Another critical message.
+INFO - Another informational message.
+DEBUG - Another debug message.
+SEVERE - This is a severe message.
+FATAL - This is a fatal message.
