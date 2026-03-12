@@ -1,0 +1,4 @@
+target,ip_address,dns_name,status,ssl_issued,ssl_expiry,last_scan_time
+google.nl,142.251.39.131,google.nl,online,02-02-2026,27-04-2026,12-03-2026 10:50:56
+tweakers.net,2.16.6.11,tweakers.net,online,21-12-2025,22-12-2026,12-03-2026 10:50:56
+cimsolutions.nl,87.233.198.116,cimsolutions.nl,offline,16-07-2025,16-08-2026,12-03-2026 10:50:56
