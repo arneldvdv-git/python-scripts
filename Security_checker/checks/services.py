@@ -2,18 +2,30 @@ import platform
 import subprocess
 
 def _run(cmd):
+    """Voer een command uit en vang output af voor parsing.
+
+    We behandelen non-zero exit codes niet als uitzonderingen: service tooling kan
+    ontbreken of beperkte rechten hebben.
+    """
     return subprocess.run(cmd, capture_output=True, text=True)
 
 def service_running_linux(name):
-    # systemd
+    # Systemd-only: detecteert geen SysV/init.d of containers zonder systemd.
     result = _run(["systemctl", "is-active", name])
     return "active" in result.stdout
 
 def service_running_windows(name):
+    # `sc query` is best-effort: output kan verschillen per locale/Windows-versie.
     result = _run(["sc", "query", name])
     return "RUNNING" in result.stdout
 
 def check_services(baseline, env):
+    """Controleer services t.o.v. de baseline.
+
+    Baseline keys:
+      - services.must_run: list[str]
+      - services.forbidden: list[str]
+    """
     findings = []
     os_name = env["os"]
 

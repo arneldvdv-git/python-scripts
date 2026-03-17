@@ -3,6 +3,10 @@ general:
     windows: "10"
     linux: "7"   # RHEL/CentOS major, of gebruik zelf iets anders
 
+# Tip: dit baseline-bestand beschrijft beleid (wat je verwacht), niet de detectielogica.
+# De checks in `Security_checker/checks/` zijn best-effort en kunnen per OS/tooling
+# verschillen in dekking en nauwkeurigheid.
+
 firewall:
   required: true
   allowed_ports:

@@ -2,10 +2,17 @@ import os
 import stat
 
 def mode_to_str(mode):
-    # bijv. 0o644 -> "644"
+    # Let op: `st_mode` bevat ook file-type bits. Deze implementatie is simpel en
+    # gaat ervan uit dat de laatste drie octale digits genoeg zijn voor de baseline.
+    # (Als je strikter wilt zijn: mask met 0o777 en vergelijk exact.)
     return oct(mode)[-3:]
 
 def check_files(baseline, env):
+    """Controleer bestandsbestaan en permissies (primair Linux).
+
+    Baseline keys:
+      - files.check: list[{path: str, mode: str}]
+    """
     findings = []
     os_name = env["os"]
 
