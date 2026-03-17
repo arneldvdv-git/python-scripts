@@ -1,0 +1,31 @@
+general:
+  min_os_version:
+    windows: "10"
+    linux: "7"   # RHEL/CentOS major, of gebruik zelf iets anders
+
+firewall:
+  required: true
+  allowed_ports:
+    - 22
+    - 80
+    - 443
+
+services:
+  must_run:
+    - sshd
+  forbidden:
+    - telnet
+    - vsftpd
+
+files:
+  check:
+    - path: "/etc/passwd"
+      mode: "644"
+    - path: "/etc/shadow"
+      mode: "600"
+
+containers:
+  relaxed_firewall_checks: true
+  detect_by:
+    - env: "KUBERNETES_SERVICE_HOST"
+    - cgroup: "kubepods"
