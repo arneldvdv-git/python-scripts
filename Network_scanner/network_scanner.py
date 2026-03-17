@@ -213,6 +213,6 @@ if __name__ == "__main__":
         
         print("Scan completed. Results saved to inventory-report.csv")
     except FileNotFoundError:
-        print("Error: targets.txt file not found. Please create it with IP ranges or hostnames.")
+        print("Error: targets.txt file not found. Please create it with IP ranges and/or hostnames.")
     except Exception as e:
         print(f"An error occurred: {e}")
